@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import InputExample1 from "./InputExample1";
+import InputExample2 from "./InputExample2";
+import InputExample3 from "./InputExample3";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main-form">
+      <div className="column">
+        <div className="form-section">
+          <h1>Input Example 1</h1>
+          <InputExample1 />
+        </div>
+        <div className="form-section">
+          <h1>Input Example 2</h1>
+          <InputExample2 />
+        </div>
+      </div>
+      <div className="column-1">
+        <InputExample3 />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
