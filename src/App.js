@@ -6,13 +6,13 @@ import "./App.css";
 const App = () => {
   return (
     <div className="main-form">
+      <div className="column-1">
+        <InputExample3 />
+      </div>
       <div className="column">
         <div className="form-section">
           <InputExample1 />
         </div>
-      </div>
-      <div className="column-1">
-        <InputExample3 />
       </div>
     </div>
   );
