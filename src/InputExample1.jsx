@@ -1,46 +1,68 @@
 import React, { useState } from "react";
+import "./InputExample1.css";
 
 const InputExample1 = () => {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [pet, setPet] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    surname: "",
+    favoritePet: "",
+    email: "",
+    password: "",
+    age: "",
+  });
 
-  const handlePetChange = (event) => {
-    setPet(event.target.value);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Your logic to handle the form submission
-    console.log("Name:", name);
-    console.log("Surname:", surname);
-    console.log("Pet:", pet);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Display form data in an alert with "no info" for empty fields
+    const formDataString = Object.entries(formData)
+      .map(([key, value]) => `${key}: ${value || "no info"}`)
+      .join("\n");
+
+    alert(`Form Data:\n${formDataString}`);
   };
 
   return (
-    <div>
+    <div className="form-section">
+      <h1>Registruokitės</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Name:
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+          Vardas:
+          <input type="text" name="name" value={formData.name} onChange={handleChange} />
         </label>
-        <br />
         <label>
-          Surname:
-          <input type="text" value={surname} onChange={(e) => setSurname(e.target.value)} />
+          Pavardė:
+          <input type="text" name="surname" value={formData.surname} onChange={handleChange} />
         </label>
-        <br />
         <label>
-          Favorite Pet:
-          <select value={pet} onChange={handlePetChange}>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="fish">Fish</option>
-            <option value="bird">Bird</option>
+          Mylimiausias augintinis:
+          <select name="favoritePet" value={formData.favoritePet} onChange={handleChange}>
+            <option value="">Pasirinkite</option>
+            <option value="dog">Šikšnosparnis</option>
+            <option value="cat">Usūrinis šuo</option>
+            <option value="fish">Šamas</option>
+            <option value="bird">Kranklys</option>
+            <option value="bird">Iguana</option>
+            <option value="bird">Kranklys</option>
           </select>
         </label>
-        <br />
-        <button type="submit">Submit</button>
+        <label>
+          El. paštas:
+          <input type="email" name="email" value={formData.email} onChange={handleChange} />
+        </label>
+        <label>
+          Slaptažodis:
+          <input type="password" name="password" value={formData.password} onChange={handleChange} />
+        </label>
+        <label>
+          Amžius:
+          <input type="number" name="age" value={formData.age} onChange={handleChange} />
+        </label>
+        <button type="submit">Pateikti</button>
       </form>
     </div>
   );

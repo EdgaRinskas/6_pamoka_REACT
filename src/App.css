@@ -1,5 +1,12 @@
 /* App.css */
-
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #bfe4cf;
+}
 .main-form {
   display: flex;
   margin: 20px;
@@ -10,31 +17,29 @@
   flex-direction: column;
   background-color: #354259;
 }
-.column-1{
+
+.column-1 {
   background-color: #6fe1c5;
 }
 
 .form-section {
   width: 320px;
-  height: 100%;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
 .logo-text {
   text-align: center;
-  padding-top: 50%;
-  padding-bottom: 50%;
+  padding: 50% 0;
 }
 
 h1 {
-  color: #333;
+  color: #98a3b2;
 }
 
 form {
@@ -45,16 +50,22 @@ form {
 }
 
 label {
+  text-align: left;
   margin-bottom: 8px;
+  color: #98a3b2;
+  text-transform: uppercase;
 }
 
 input,
 select {
+  width: 100%;
   padding: 8px;
   margin-bottom: 12px;
+  box-sizing: border-box;
 }
 
 button {
+  width: 100%;
   padding: 10px;
   cursor: pointer;
   background-color: #65d1bc;
